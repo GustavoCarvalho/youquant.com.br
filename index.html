@@ -1,0 +1,765 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>You Quant</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon.ico">
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		function contato() {
+			let email = $("#email").val()
+			let first_name = $("#fname").val()
+			let last_name = $("#lname").val()
+			let message = $("#message").val()
+			if (first_name == "") {
+				alert("favor informar seu nome")
+				$("#fname").focus()
+				return
+			}
+			if (last_name == "") {
+				alert("favor informar seu sobrenome")
+				$("#lname").focus()
+				return
+			}
+			if (email == "") {
+				alert("favor informar seu email")
+				$("#email").focus()
+				return
+			} else {
+				let re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+				if (!re.test(email)) {
+					alert("email inválido")
+					$("#email").focus()
+					return
+				}
+			}
+			if (message == "") {
+				alert("favor enviar uma mensagem com o motivo de interesse para que possamos retornar com as informações solicitadas")
+				$("#message").focus()
+				return
+			}
+			var auth = $.ajax({
+				url: "https://vvw44czr61.execute-api.us-east-1.amazonaws.com/prod/contact",
+				type: 'POST',
+				data: JSON.stringify({
+					email,
+					first_name,
+					last_name,
+					message,
+				}),
+				complete: function () {
+					alert('Mensagem enviada com sucesso. Aguarde que entraremos em contato')
+					$("#contact_submit").attr("disabled", true);
+				}
+			});
+		}
+	</script>
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+	
+	<div>
+		<form class="promotion" role="search" action="https://app.youquant.com.br">
+			<span class="access-title">Acesso <b>grátis</b> até o lançamento!</span>
+		</form>
+	</div >
+
+	<div id="page">
+
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div id="colorlib-logo"><a href="index.html">You Quant</a></div>
+						</div>
+						<div class="col-md-10 text-right menu-1">
+							<ul>
+								<li class="active"><a href="#page">Home</a></li>
+								<li class="has-dropdown">
+									<a href="#algoritmos">Algoritmos</a>
+									<ul class="dropdown">
+										<li><a href="long_and_short.html">Long & Short</a></li>
+										<li><a href="mercado_de_opcoes.html">Mercado de Opções</a></li>
+										<li><a href="mercado_de_juros.html">Mercado de Juros</a></li>
+									</ul>
+								</li>
+								<li><a href="#planos">Planos</a></li>
+								<li><a href="#contato">Contato</a></li>
+								<li class="btn btn-primary btn-outline"><a href="https://app.youquant.com.br">Entrar</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<section id="home" class="video-hero" style="height: 700px; background-image: url(images/cover_img_2.jpg); background-size:cover; background-position: center center; background-attachment:fixed;" data-section="home">
+		<div class="overlay"></div>
+			<a class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=HyYpY69Zk6Y&lis', containment:'#home', showControls:false, autoPlay:true, loop:true, mute:true, startAt:0, opacity:1, quality:'small', useOnMobile:false, showYTLogo:false}"></a> 
+			<div class="display-t text-center">
+				<div class="display-tc">
+					<div class="container">
+						<div class="col-md-12 col-md-offset-0">
+							<div class="animate-box">
+								<h2>Tudo o que você precisa para rentabilizar sua carteira em um só lugar!</h2>
+								<p>Com os melhores métodos quantitativos do mercado.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="colorlib-featured">
+			<div class="row animate-box">
+				<div class="featured-wrap">
+					<div class="owl-carousel">
+						<div class="item">
+							<div class="col-md-8 col-md-offset-2">
+								<div class="featured-entry">
+									<img class="img-responsive" src="images/carrousel-1.jpg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="col-md-8 col-md-offset-2">
+								<div class="featured-entry">
+									<img class="img-responsive" src="images/carrousel-1.jpg" alt="">
+								</div>
+							</div>
+						</div>
+						<!--
+						<div class="item">
+							<div class="col-md-8 col-md-offset-2">
+								<div class="featured-entry">
+									<img class="img-responsive" src="images/dashboard_full_3.jpg" alt="">
+								</div>
+							</div>
+						</div>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-services colorlib-bg-white">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-linegraph"></i>
+							</span>
+							<div class="desc">
+								<h3>Dashboard</h3>
+								<p>Acompanhe as principais informações da sua carteira, posições abertas, lucros, prejuízos, taxas e muito mais.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-bargraph"></i>
+							</span>
+							<div class="desc">
+								<h3>Relatórios</h3>
+								<p>Acesse relatórios detalhados de suas operações. Visualize e exporte o histórico de cada operação.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-lock"></i>
+							</span>
+							<div class="desc">
+								<h3>Segurança</h3>
+								<p>Opere de forma segura através da verificação de duas etapas com o uso do token de segurança.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-pie-chart"></i>
+							</span>
+							<div class="desc">
+								<h3>Gráficos</h3>
+								<p>Visualize diversos gráficos e histórico intraday das principais variáveis de cada método quantitativo. Exemplo: volatilidade implícita, Garch, desvios intraday, resíduos etc.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-search2"></i>
+							</span>
+							<div class="desc">
+								<h3>Filtros</h3>
+								<p>Faça buscas personalizadas e salve seus filtros favoritos. Filtre pares por setor, volatilidade ou critério de cálculo.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center animate-box">
+						<div class="services">
+							<span class="icon">
+								<i class="icon-genius"></i>
+							</span>
+							<div class="desc">
+								<h3>Automatização de ordens</h3>
+								<p>Automatize ordens configurando os parâmetros de gain/loss, vencimento da ordem, tipo de saída (por financeiro, desvio ou spread) com entradas/saídas fracionadas ou a mercado.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+						<h2>Conheça a melhor plataforma quantitativa do mercado</h2>
+						<p>Saia dos métodos convencionais de investimento e opere de forma profissional como os grandes fundos de investimentos.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<span class="play"><a href="https://www.youtube.com/watch?v=4po6bY6O8XI" class="pulse popup-youtube"><i class="icon-play3"></i></a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-work-featured colorlib-bg-white" id="algoritmos">
+			<div class="container">
+				<div class="row mobile-wrap">
+					<div class="col-md-5 animate-box">
+						<div class="mobile-img" style="background-image: url(images/pexels-photo-159888.jpg);"></div>
+					</div>
+					<div class="col-md-7 animate-box">
+						<div class="desc">
+							<h2>Algoritmo Long & Short</h2>
+							<div class="features">
+								<span class="icon"><i class="icon-lightbulb"></i></span>
+								<div class="f-desc">
+									<p>Long & Short consiste em uma operação simultânea em dois ativos distintos, na qual o investidor mantém uma posição vendida em um ativo e comprada no outro no intuito de operar o retorno à média do resíduo financeiro momentâneo entre os dois ativos.</p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-circle-compass"></i></span>
+								<div class="f-desc">
+									<p>Por estar comprado em um ativo e vendido no outro, o investidor diminui o risco sistêmico de mercado de sua carteira, ganhando na tendência de alta ou baixa.</p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-beaker"></i></span>
+								<div class="f-desc">
+									<p>Opere pelo método quantitativo mais novo do mercado brasileiro, de forma ágil e precisa, através de um controle automático de risco, entradas à mercado com lote completo ou fracionado além de um gerenciamento de carteira em tempo real. E o melhor, tudo isso em um só lugar!</p>
+								</div>
+							</div>
+							<p><a href="long_and_short.html" class="btn btn-primary btn-outline with-arrow">Conhecer mais <i class="icon-arrow-right3"></i></a></p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+						<div class="mobile-img" style="background-image: url(images/pexels-photo-1073765.jpg);"></div>
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<h2>Algoritmo Opções por Volatilidade</h2>
+							<div class="features">
+								<span class="icon"><i class="icon-lightbulb"></i></span>
+								<div class="f-desc">
+									<p>Execute as melhores estratégias de acordo com o momento de mercado, faça análises de suas operações de forma precisa e segura.</p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-circle-compass"></i></span>
+								<div class="f-desc">
+									<p>Analise as gregas das opções dos ativos mais líquidos do mercado, tenha acesso ao histórico de volatilidade implícita de cada ativo. Compare a volatilidade implícita com o Garch, IV Rank e IV Percentil e estruture a melhor cada operação. </p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-beaker"></i></span>
+								<div class="f-desc">
+									<p>Abra operações por diferenças de spreads ou por diferenças de volatilidade. Monte estratégias com o ativo e proteja sua carteira de maneira simples e intuitiva.</p>
+								</div>
+							</div>
+							<p><a href="mercado_de_opcoes.html" class="btn btn-primary btn-outline with-arrow">Conhecer mais <i class="icon-arrow-right3"></i></a></p>
+						</div>
+					</div>
+				</div>
+				<div class="row mobile-wrap">
+					<div class="col-md-5 animate-box">
+						<div class="mobile-img" style="background-image: url(images/pexels-photo-notebook.jpg);"></div>
+					</div>
+					<div class="col-md-7 animate-box">
+						<div class="desc">
+							<h2>Algoritmo Juros Futuro (DI)</h2>
+							<div class="features">
+								<span class="icon"><i class="icon-lightbulb"></i></span>
+								<div class="f-desc">
+									<p>Negocie em um dos maiores mercados do mundo com alta liquidez de maneira ágil e sem planilhas.</p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-circle-compass"></i></span>
+								<div class="f-desc">
+									<p>Estruture operações de forma segura esperando movimentos nas curvas de juros como os grandes bancos fazem.</p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-beaker"></i></span>
+								<div class="f-desc">
+									<p>Opere diferentes prazos das curvas de juros de maneira intuitiva e fácil! Faça operações de hedge e arbitragem com contratos futuros de DI.</p>
+								</div>
+							</div>
+							<p><a href="mercado_de_juros.html" class="btn btn-primary btn-outline with-arrow">Conhecer mais <i class="icon-arrow-right3"></i></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="colorlib-counter" class="colorlib-counters" style="background-image: url(images/cover_img_2.jpg);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-4 col-sm-4 text-center animate-box">
+							<div class="counter-entry">
+								<span class="icon"><i class="flaticon-ribbon"></i></span>
+								<div class="desc">
+									<span class="colorlib-counter js-counter" data-from="0" data-to="68" data-speed="5000" data-refresh-interval="50"></span>
+									<span class="colorlib-counter-label">ativos em Long & Short</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 text-center animate-box">
+							<div class="counter-entry">
+								<span class="icon"><i class="flaticon-church"></i></span>
+								<div class="desc">
+									<span class="colorlib-counter js-counter" data-from="0" data-to="612000" data-speed="5000" data-refresh-interval="50"></span>
+									<span class="colorlib-counter-label">mil cálculos por minuto</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 text-center animate-box">
+							<div class="counter-entry">
+								<span class="icon"><i class="flaticon-ribbon"></i></span>
+								<div class="desc">
+									<span class="colorlib-counter js-counter" data-from="0" data-to="15" data-speed="5000" data-refresh-interval="50"></span>
+									<span class="colorlib-counter-label">ativos com opções</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-work-featured colorlib-bg-white">
+			<div class="container">
+				<div class="row mobile-wrap">
+					<div class="col-md-5 col-md-push-7 animate-box">
+						<div class="mobile-img" style="background-image: url(images/pexels-photo-870903.jpg);"></div>
+					</div>
+					<div class="col-md-7 col-md-pull-5 animate-box">
+						<div class="desc">
+							<h2>Acesse pelo celular!</h2>
+							<div class="features">
+								<span class="icon"><i class="icon-lightbulb"></i></span>
+								<div class="f-desc">
+									<p>Acompanhe suas operações de onde estiver.</p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-circle-compass"></i></span>
+								<div class="f-desc">
+									<p>Receba notificações de suas operações abertas a cada mudança de status via email ou através do MT5 móvel. </p>
+								</div>
+							</div>
+							<div class="features">
+								<span class="icon"><i class="icon-beaker"></i></span>
+								<div class="f-desc">
+									<p>Gerencie sua carteira na palma de sua mão. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--div id="colorlib-subscribe" class="colorlib-subscribe" style="background-image: url(images/cover_img_2.jpg);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center colorlib-heading animate-box">
+						<h2>Já somos milhares de investidores quantitativos, torne-se um você também!</h2>
+						<p>Inscreva-se em nossa newsletter e fique por dentro das novidades da plataforma. Prometemos não incomodar.</p>
+					</div>
+				</div>
+				<div class="row animate-box">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="row">
+							<div class="col-md-12">
+							<form class="form-inline qbstp-header-subscribe">
+								<div class="col-three-forth">
+									<div class="form-group">
+										<input type="text" class="form-control" id="email" placeholder="Digite seu email">
+									</div>
+								</div>
+								<div class="col-one-third">
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary">Inscrever</button>
+									</div>
+								</div>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div-->
+
+		<div id="colorlib-subscribe" class="colorlib-subscribe" style="background-image: url(images/cover_img_2.jpg);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container" id="contato">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center colorlib-heading animate-box">
+						<h2>Entre em contato conosco!</h2>
+						<p>pelo formulário ou email</p>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-md-4 col-md-push-8 animate-box">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="contact-info-wrap-flex">
+										<div class="con-info">
+											<p><span><i class="icon-paperplane"></i></span>
+												<script type="text/javascript">
+													<!-- Begin
+													user = "contato";
+													domain = "youquant.com.br";
+													document.write('<a href=\"mailto:' + user + '@' + domain + '\">' + 
+																user + '@' + domain + '</a>');
+													// End -->
+												</script>
+											</p>
+										</div>
+										<div class="con-info">
+											<p><span><i class="icon-globe"></i></span> <a href="#">youquant.com.br</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8 col-md-pull-4 animate-box">
+							<div class="row form-group">
+								<div class="col-md-6">
+									<!-- <label for="fname">First Name</label> -->
+									<input type="text" id="fname" class="form-control" placeholder="Nome">
+								</div>
+								<div class="col-md-6">
+									<!-- <label for="lname">Last Name</label> -->
+									<input type="text" id="lname" class="form-control" placeholder="Sobrenome">
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<div class="col-md-12">
+									<!-- <label for="email">Email</label> -->
+									<input type="text" id="email" class="form-control" placeholder="Email">
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<div class="col-md-12">
+									<!-- <label for="message">Message</label> -->
+									<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Mensagem"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="button" value="Enviar" class="btn btn-primary" id="contact_submit" onclick="JavaScript:contato()">
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-pricing" id="planos">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+						<h2>Planos</h2>
+						<p>Conheça nossos planos</p>
+					</div>
+				</div>
+				<div class="row">
+					<!--div class="col-md-3 text-center animate-box">
+						<div class="pricing">
+							<h2 class="pricing-heading">Junior</h2>
+							<div class="price"><sup class="currency">R$</sup>Free</div>
+							<p></p>
+							<p>Módulo Long & Short por Cointegração</p>
+							<p>Módulo Opções *</p>
+							<p>Módulo Juros Futuro *</p>
+							<p>Atualização tempo real (5 min)</p>
+							<p>Robô de execução para Conta demo</p>
+							<p><small class="text-muted">* Em Breve</small></p>
+							<p><a href="https://app.youquant.com.br/#/cadastro?plano=free" class="btn btn-primary">Assinar</a></p>
+						</div>
+					</div-->
+					<div class="col-md-3 text-center animate-box">
+						<div class="pricing">
+							<h2 class="pricing-heading">Long &Short</h2>
+							<div class="price"><sup class="currency">R$</sup>Free<small>versão beta</small></div>
+							<p>Tempo real</p>
+							<p>Robô de execução para Conta Real</p>
+							<p>Ativos Mercado à Vista (IBOV)</p>
+							<p>Suporte Técnico via telegram</p>
+							<!--p>Plano mensal, cancelamento a qualquer momento</p>
+							<p>Assinando o plano anual, ganhe 2 meses grátis</p-->
+							<p>Grátis até o lançamento</p>
+							<p><a href="https://app.youquant.com.br/#/cadastro?plano=ls" class="btn btn-primary">Participar</a></p>
+						</div>
+					</div>
+					<div class="col-md-3 text-center animate-box">
+						<div class="pricing">
+							<h2 class="pricing-heading">Opcões</h2>
+							<div class="price"><del><sup class="currency">R$</sup>0<small>por mês</small></del></div>
+							<p>Tempo real (5 min)</p>
+							<p>15 ativos mais líquidos</p>
+							<p>Execução por Volatilidade</p>
+							<p>Suporte Técnico</p>
+							<p>Plano mensal, cancelamento a qualquer momento</p>
+							<p>Assinando o plano anual, ganhe 2 meses grátis</p>
+							<p><a href="https://app.youquant.com.br/#/cadastro" class="btn disabled btn-primary"><del>Assinar</del></a></p>
+						</div>
+					</div>
+					<div class="col-md-3 text-center animate-box">
+						<div class="pricing">
+							<h2 class="pricing-heading">Juros Futuro</h2>
+							<div class="price"><del><sup class="currency">R$</sup>0<small>por mês</small></del></div>
+							<p>Cálculo do PU.</p>
+							<p>Cálculo do DiV one</p>
+							<p>Simulação de Montecarlo</p>
+							<p>Curva de Juros</p>
+							<p>Suporte Técnico</p>
+							<p>Plano mensal, cancelamento a qualquer momento</p>
+							<p>Assinando o plano anual, ganhe 2 meses grátis</p>
+							<p><a href="https://app.youquant.com.br/#/cadastro" class="btn disabled btn-primary"><del>Assinar</del></a></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3 text-center animate-box">
+							<div class="pricing">
+								<h2 class="pricing-heading">Enterprise</h2>
+								<div class="price"><del></de><sup class="currency">R$</sup>0<small>por mês</small></del></div>
+								<p>Long & Short</p>
+								<p>Mercado de Opções</p>
+								<p>Mercado de Juros</p>
+								<p>Acesso via API</p>
+								<p><a href="https://app.youquant.com.br/#/cadastro" class="btn disabled btn-primary"><del>Assinar</del></a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colorlib-footer">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col-md-4 colorlib-widget">
+						<h4>Sobre nós</h4>
+						<p>Somos uma plataforma de tecnologia focada em soluções automatizadas que utilizam algoritmos quantitativos que analisam e processam em tempo real dados do mercado financeiro para gerar informações com alto valor agregado aos nossos parceiros.</p>
+						<p>
+							<ul class="colorlib-social-icons">
+								<li><a href="https://twitter.com/youquantbr"><i class="icon-twitter"></i></a></li>
+								<li><a href="https://www.instagram.com/youquantbr/"><i class="icon-instagram"></i></a></li>
+								<!--li><a href="#"><i class="icon-telegram"></i></a></li-->
+								<li><a href="https://www.youtube.com/channel/UCDmB_I_P5Z9FQRvbzAhawzA"><i class="icon-youtube"></i></a></li>
+							</ul>
+						</p>
+					</div>
+					<div class="col-md-2 colorlib-widget">
+						<h4>Páginas</h4>
+						<p>
+							<ul class="colorlib-footer-links">
+								<li><a href="#page"><i class="icon-check"></i> Home</a></li>
+								<li><a href="#algoritmos"><i class="icon-check"></i> Algoritmos</a></li>
+								<li><a href="#planos"><i class="icon-check"></i> Planos</a></li>
+								<li><a href="#contato"><i class="icon-check"></i> Contato</a></li>
+							</ul>
+						</p>
+					</div>
+
+					<div class="col-md-3 colorlib-widget">
+						<h4>Algoritmos</h4>
+						<div class="f-blog">
+							<a href="long_and_short.html" class="blog-img" style="background-image: url(images/pexels-photo-159888.jpg);">
+							</a>
+							<div class="desc">
+								<h2><a href="long_and_short.html">Long&Short por Cointegração</a></h2>
+								<p class="admin"><span>Lançamento 2020</span></p>
+							</div>
+						</div>
+						<div class="f-blog">
+							<a href="mercado_de_opcoes.html" class="blog-img" style="background-image: url(images/pexels-photo-1073765.jpg);">
+							</a>
+							<div class="desc">
+								<h2><a href="mercado_de_opcoes.html">Algoritmo de Opções</a></h2>
+								<p class="admin"><span>Lançamento 2020</span></p>
+							</div>
+						</div>
+						<div class="f-blog">
+							<a href="mercado_de_juros.html" class="blog-img" style="background-image: url(images/pexels-photo-notebook.jpg);">
+							</a>
+							<div class="desc">
+								<h2><a href="mercado_de_juros.html">Algoritmo de Juros</a></h2>
+								<p class="admin"><span>Lançamento 2020</span></p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3 colorlib-widget">
+						<h4>Contato</h4>
+						<ul class="colorlib-footer-links">
+							<li><i class="icon-envelope"> </i><script type="text/javascript">
+								<!-- Begin
+								user = "contato";
+								domain = "youquant.com.br";
+								document.write(' <a href=\"mailto:' + user + '@' + domain + '\">' + 
+											user + '@' + domain + '</a>');
+								// End -->
+							</script></li>
+							<li><i class="icon-location4"> </i><a href="https://youquant.com.br">youquant.com.br</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="copy">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados </i> por <a href="https://youquant.com.br" target="_blank">You Quant</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- YTPlayer -->
+	<script src="js/jquery.mb.YTPlayer.min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	<!-- Hotjar Tracking Code for youquant.com.br -->
+	<script>
+		(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1499676,hjsv:6};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+	<!-- Start of HubSpot Embed Code -->
+	<!--script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6259785.js"></script-->
+	<!-- End of HubSpot Embed Code -->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148697419-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-148697419-1');
+	</script>
+
+
+	</body>
+</html>
+
